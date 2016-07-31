@@ -1,0 +1,19 @@
+<h1><b>Administrações</b></h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+    <a class="btn btn-success" href="#" ng-click="novaAdministracao()">Nova administração</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome da administração</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="administracao in administracoes" class="clickable" ng-click="editarAdministracao(administracao)" ng-cloak>
+            <td>{{ administracao.id }}</td>
+            <td>{{ administracao.nome }}</td>
+        </tr>
+    </tbody>
+</table>

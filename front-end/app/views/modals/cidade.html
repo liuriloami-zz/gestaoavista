@@ -1,0 +1,24 @@
+<form ng-submit="salvarCidade()" class="modal fade" id="cidade" cidade>
+    <div class="modal-dialog" ng-if="Modal.getTitle() == 'cidade'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">Cidade</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nome da cidade</label>
+                    <input required type="text" class="form-control" placeholder="Nome da cidade" ng-model="data.nome">
+                </div>
+                <div class="form-group">
+                    <label>Administração</label>
+                    <select required class="form-control" ng-options="administracao as administracao.nome for administracao in administracoes track by administracao.id" ng-model="data.administracao"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-success">Salvar informações</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+<h1><b>Terrenos</b></h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+    <a class="btn btn-success" href="#" ng-click="novoTerreno()">Novo Terreno</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Cidade</th>
+            <th>Terreno</th>
+            <th>Zona Urbana</th>
+            <th>Unificação de Lotes</th>
+            <th>Registro</th>
+            <th>Impedimentos para registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="terreno in terrenos" class="clickable" ng-click="editarTerreno(terreno)" ng-cloak>
+            <td>{{ terreno.id }}</td>
+            <td>{{ terreno.cidade.nome }}</td>
+            <td>{{ terreno.nome }}</td>
+            <td ng-class="gerarCor(terreno.zona_urbana)">
+                <i ng-class="gerarIcone(terreno.zona_urbana)"></i>
+            </td>
+            <td ng-class="gerarCor(terreno.unificacao)">
+                <i ng-class="gerarIcone(terreno.unificacao)"></i>
+            </td>
+            <td ng-class="gerarCor(terreno.registro)">
+                <i ng-class="gerarIcone(terreno.registro)"></i>
+            </td>
+            <td>{{ terreno.impedimentos }}</td>
+        </tr>
+    </tbody>
+</table>

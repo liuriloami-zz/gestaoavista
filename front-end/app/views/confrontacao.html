@@ -1,0 +1,28 @@
+<h1><b>Casas de Oração:</b> Confrontação Metragem Físico x Projeto</h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Casa de oração</th>
+            <th>Confrontação Realizada?</th>
+            <th>Há divergência?</th>
+            <th>Metragem</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="casa_oracao in casas_oracao" class="clickable" ng-click="editarCasaOracao('confrontacao', casa_oracao)" ng-cloak>
+            <td>{{ casa_oracao.codigo }}</td>
+            <td>{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</td>
+            <td ng-class="gerarCor(casa_oracao.confrontacao.realizada)">
+                <i ng-class="gerarIcone(casa_oracao.confrontacao.realizada)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.confrontacao.divergencia)">
+                <i ng-class="gerarIcone(casa_oracao.confrontacao.divergencia)"></i>
+            </td>
+            <td>{{ casa_oracao.confrontacao.metragem }}</td>
+        </tr>
+    </tbody>
+</table>

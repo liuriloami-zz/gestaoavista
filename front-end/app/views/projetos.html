@@ -1,0 +1,46 @@
+<h1><b>Casas de Oração:</b> Projetos</h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Casa de oração</th>
+            <th>Projeto Arquitetônico</th>
+            <th>Projeto Estrutural</th>
+            <th>Projeto Elétrico</th>
+            <th>Projeto Hidráulico</th>
+            <th>Bancada</th>
+            <th>Som</th>
+            <th>Pára-raios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="casa_oracao in casas_oracao" class="clickable" ng-click="editarCasaOracao('projetos', casa_oracao)" ng-cloak>
+            <td>{{ casa_oracao.codigo }}</td>
+            <td>{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</td>
+            <td ng-class="gerarCor(casa_oracao.projetos.arquitetonico)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.arquitetonico)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.estrutural)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.estrutural)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.eletrico)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.eletrico)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.hidraulico)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.hidraulico)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.bancada)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.bancada)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.som)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.som)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.projetos.para_raios)">
+                <i ng-class="gerarIcone(casa_oracao.projetos.para_raios)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

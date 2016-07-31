@@ -1,0 +1,36 @@
+<h1><b>Coletas:</b> {{ titulo }}</h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Mês</th>
+            <th>Construção</th>
+            <th>Obra Piedade / R. Mocidade</th>
+            <th>Viagens missionárias</th>
+            <th>Manutenção</th>
+            <th>Assembleia</th>
+            <th>Especial Brasil</th>
+            <th>Especial Terreno</th>
+            <th>Especial Reg. Amparo</th>
+            <th>Especial Águas de Lindoia</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="coleta in coletas" class="clickable" ng-click="editarColeta(coleta)" ng-cloak>
+            <th>{{ coleta.mes }}</th>
+            <td>{{ coleta.construcao }}</td>
+            <td>{{ coleta.piedade }}</td>
+            <td>{{ coleta.viagens }}</td>
+            <td>{{ coleta.manutencao }}</td>
+            <td>{{ coleta.assembleia }}</td>
+            <td>{{ coleta.especial_brasil }}</td>
+            <td>{{ coleta.especial_terreno }}</td>
+            <td>{{ coleta.especial_reg_amparo }}</td>
+            <td>{{ coleta.especial_ag_lindoia }}</td>
+            <td>{{ coleta.total }}</td>
+        </tr>
+    </tbody>
+</table>

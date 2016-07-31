@@ -1,0 +1,39 @@
+<form ng-submit="salvarUsuario()" class="modal fade" id="usuario" usuario>
+    <div class="modal-dialog" ng-if="Modal.getTitle() == 'usuario'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">Usuário</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input required type="text" class="form-control" placeholder="Nome completo" ng-model="data.nome">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input required type="email" class="form-control" placeholder="Email" ng-model="data.email">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-control" ng-model="data.senha">
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <select required ng-model="data.tipo" class="form-control">
+                        <option ng-value="administrador">Administrador</option>
+                        <option ng-value="comum">Usuário comum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Administração</label>
+                    <select required class="form-control" ng-options="administracao as administracao.nome for administracao in administracoes track by administracao.id" ng-model="data.administracao"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-success">Salvar informações</button>
+            </div>
+        </div>
+    </div>
+</form>

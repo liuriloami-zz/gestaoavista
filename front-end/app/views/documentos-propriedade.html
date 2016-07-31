@@ -1,0 +1,40 @@
+<h1><b>Casas de Oração:</b> Documentos de Propriedade</h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Casa de Oração</th>
+            <th>Checklist</th>
+            <th>Possui escritura?</th>
+            <th>Obra foi baixada na receita?</th>
+            <th>Está averbada?</th>
+            <th>Averbação total ou parcial?</th>
+            <th>Impedimentos para averbação</th>
+            <th>Validade da cessão</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="casa_oracao in casas_oracao" class="clickable" ng-click="editarCasaOracao('documentos-propriedade', casa_oracao)" ng-cloak>
+            <td>{{ casa_oracao.codigo }}</td>
+            <td>{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</td>
+            <td ng-class="gerarCor(casa_oracao.documentos_propriedade.checklist)">
+                <i ng-class="gerarIcone(casa_oracao.documentos_propriedade.checklist)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.documentos_propriedade.escritura)">
+                <i ng-class="gerarIcone(casa_oracao.documentos_propriedade.escritura)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.documentos_propriedade.baixada_receita)">
+                <i ng-class="gerarIcone(casa_oracao.documentos_propriedade.baixada_receita)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.documentos_propriedade.averbacao)">
+                <i ng-class="gerarIcone(casa_oracao.documentos_propriedade.averbacao)"></i>
+            </td>
+            <td>{{ casa_oracao.documentos_propriedade.averbacao_parcela}}</td>
+            <td>{{ casa_oracao.documentos_propriedade.averbacao_impedimentos }}</td>
+            <td>{{ casa_oracao.documentos_propriedade.cessao }}</td>
+        </tr>
+    </tbody>
+</table>

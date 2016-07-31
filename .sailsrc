@@ -1,0 +1,10 @@
+{
+  "generators": {
+    "modules": {
+      "api": "sails-generate-api"
+    }
+  },
+  "hooks": {
+        "grunt": false
+    }
+}

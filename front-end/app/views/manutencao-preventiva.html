@@ -1,0 +1,66 @@
+<h1><b>Casas de Oração:</b> Informações Gerais</h1>
+<div class="btn-group pull-right hidden-print" role="group" aria-label="...">
+    <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Casa de Oração</th>
+            <th>Jan</th>
+            <th>Fev</th>
+            <th>Mar</th>
+            <th>Abr</th>
+            <th>Maio</th>
+            <th>Jun</th>
+            <th>Jul</th>
+            <th>Ago</th>
+            <th>Set</th>
+            <th>Out</th>
+            <th>Nov</th>
+            <th>Dez</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="casa_oracao in casas_oracao" class="clickable" ng-click="editarCasaOracao('manutencao-preventiva', casa_oracao)" ng-cloak>
+            <td>{{ casa_oracao.codigo }}</td>
+            <td>{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.janeiro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.janeiro)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.fevereiro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.fevereiro)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.marco)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.marco)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.abril)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.abril)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.maio)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.maio)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.junho)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.junho)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.julho)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.julho)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.agosto)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.agosto)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.setembro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.setembro)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.outubro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.outubro)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.novembro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.novembro)"></i>
+            </td>
+            <td ng-class="gerarCor(casa_oracao.manutencao.dezembro)">
+                <i ng-class="gerarIcone(casa_oracao.manutencao.dezembro)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>
