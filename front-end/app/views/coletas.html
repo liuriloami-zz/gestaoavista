@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="coleta in coletas | orderBy:'id'" class="clickable" ng-click="editarColeta(coleta)" ng-cloak>
+        <tr ng-repeat="coleta in coletas" class="clickable" ng-click="editarColeta(coleta)" ng-cloak>
             <th>{{ coleta.mes }}</th>
             <td>{{ coleta.construcao }}</td>
             <td>{{ coleta.piedade }}</td>

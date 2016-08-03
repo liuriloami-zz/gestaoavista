@@ -40,6 +40,10 @@ label {
     cursor: pointer;
 }
 
+.modal-dialog .alert {
+    margin-bottom: 0;
+}
+
 @media print {
     h1 {
         margin: -1rem 0 2rem;

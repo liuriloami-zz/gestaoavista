@@ -6,6 +6,9 @@ module.exports = {
     email: {
       type: 'string'
     },
+    senha: {
+      type: 'string'
+    },
     tipo: {
       type: 'string',
       enum: [ 'Administrador', 'Comum' ]

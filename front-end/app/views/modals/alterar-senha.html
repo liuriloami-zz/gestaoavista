@@ -1,0 +1,21 @@
+<form ng-submit="salvarUsuario()" class="modal fade" id="alterar-senha" alterar-senha>
+    <div class="modal-dialog" ng-if="Modal.getTitle() == 'alterar-senha'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">Alterar senha</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input required type="password" class="form-control" placeholder="Senha" ng-model="data.senha">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" ng-if="data.id && data.casas_oracao.length == 0 && data.terrenos.length == 0" ng-click="confirmarExclusaoCidade()">Excluir</button>
+                <button type="submit" class="btn btn-success">Salvar informações</button>
+            </div>
+        </div>
+    </div>
+</form>

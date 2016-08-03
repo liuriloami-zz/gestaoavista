@@ -1,2 +1,2 @@
 angular.module('templates',[]);
-angular.module('app',['ngRoute', 'templates']);
+angular.module('app',['ngRoute', 'ngCookies', 'templates']);

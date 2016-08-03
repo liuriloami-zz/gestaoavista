@@ -81,7 +81,7 @@ function ModalController($scope, Modal, Data, $http) {
             Data.atualizarCidades();
             Data.atualizacaoColetas = new Date();
         });
-    }
+    };
 
     $scope.salvarCasaOracao = function() {
         if ($scope.data.id)

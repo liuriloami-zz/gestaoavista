@@ -9,6 +9,10 @@ angular
         });
 
         $routeProvider
+        .when('/login', {
+            templateUrl: 'login.html',
+            controller: 'LoginController'
+        })
         .when('/administracoes', {
             templateUrl: 'administracoes.html',
             controller: 'AdministracoesController'
