@@ -25,10 +25,6 @@ angular
             templateUrl: 'coletas.html',
             controller: 'ColetasController'
         })
-        .when('/coletas/:cidade_slug/:casa_oracao_slug', {
-            templateUrl: 'coletas.html',
-            controller: 'ColetasController'
-        })
         .when('/informacoes-gerais', {
             templateUrl: 'informacoes-gerais.html',
             controller: 'CasasOracaoController'
@@ -57,7 +53,7 @@ angular
             templateUrl: 'terrenos.html',
             controller: 'TerrenosController'
         })
-        .when('/resumos/:tipo', {
+        .when('/resumos', {
             templateUrl: 'resumos.html',
             controller: 'ResumosController'
         });

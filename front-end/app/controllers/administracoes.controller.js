@@ -13,7 +13,7 @@ function AdministracoesController($scope, Data, Modal) {
     });
 
     $scope.novaAdministracao = function() {
-        Modal.open('administracao', {});
+        Modal.open('administracao', null);
     }
 
     $scope.editarAdministracao = function(administracao) {

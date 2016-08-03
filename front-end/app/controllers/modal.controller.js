@@ -2,9 +2,9 @@ angular
     .module('app')
     .controller('ModalController', ModalController);
 
-ModalController.$inject = ['$scope', 'Modal', 'Data', '$http', 'Slug'];
+ModalController.$inject = ['$scope', 'Modal', 'Data', '$http'];
 
-function ModalController($scope, Modal, Data, $http, Slug) {
+function ModalController($scope, Modal, Data, $http) {
     $scope.Data = Data;
     $scope.Modal = Modal;
 
@@ -35,32 +35,52 @@ function ModalController($scope, Modal, Data, $http, Slug) {
             .success(function(res, status) {
                 Data.atualizarAdministracoes();
             });
-    }
+    };
+
+    $scope.excluirAdministracao = function() {
+        $http.delete('http://localhost:3003/administracao/' + $scope.data.id, {})
+        .success(function(res, status) {
+            Data.atualizarAdministracoes();
+        });
+    };
+
+    $scope.confirmarExclusaoAdministracao = function() {
+        Modal.open('administracao-exclusao', $scope.data);
+    };
 
     $scope.salvarCidade = function() {
         if ($scope.data.id)
             $http.put('http://localhost:3003/cidade/' + $scope.data.id, $scope.data)
             .success(function(res, status) {
                 Data.atualizarCidades();
+                Data.atualizarAdministracoes();
             });
         else
             $http.post('http://localhost:3003/cidade/', $scope.data)
             .success(function(res, status) {
                 Data.atualizarCidades();
+                Data.atualizarAdministracoes();
             });
     }
 
+    $scope.excluirCidade = function() {
+        $http.delete('http://localhost:3003/cidade/' + $scope.data.id, {})
+        .success(function(res, status) {
+            Data.atualizarCidades();
+            Data.atualizarAdministracoes();
+        });
+    };
+
+    $scope.confirmarExclusaoCidade = function() {
+        Modal.open('cidade-exclusao', $scope.data);
+    };
+
     $scope.salvarColetas = function() {
-        if ($scope.data.id)
-            $http.put('http://localhost:3003/coletas/' + $scope.data.id, $scope.data)
-            .success(function(res, status) {
-                Data.atualizarColetas();
-            });
-        else
-            $http.post('http://localhost:3003/coletas/', $scope.data)
-            .success(function(res, status) {
-                Data.atualizarColetas();
-            });
+        $http.put('http://localhost:3003/coleta/' + $scope.data.id, $scope.data)
+        .success(function(res, status) {
+            Data.atualizarCidades();
+            Data.atualizacaoColetas = new Date();
+        });
     }
 
     $scope.salvarCasaOracao = function() {
@@ -68,37 +88,79 @@ function ModalController($scope, Modal, Data, $http, Slug) {
             $http.put('http://localhost:3003/casaoracao/' + $scope.data.id, $scope.data)
             .success(function(res, status) {
                 Data.atualizarCasasOracao();
+                Data.atualizarCidades();
             });
         else
             $http.post('http://localhost:3003/casaoracao/', $scope.data)
             .success(function(res, status) {
                 Data.atualizarCasasOracao();
+                Data.atualizarCidades();
             });
     }
+
+    $scope.excluirCasaOracao = function() {
+        $http.delete('http://localhost:3003/casaoracao/' + $scope.data.id, {})
+        .success(function(res, status) {
+            Data.atualizarCasasOracao();
+            Data.atualizarCidades();
+        });
+    };
+
+    $scope.confirmarExclusaoCasaOracao = function() {
+        Modal.open('casaoracao-exclusao', $scope.data);
+    };
 
     $scope.salvarTerreno = function() {
         if ($scope.data.id)
             $http.put('http://localhost:3003/terreno/' + $scope.data.id, $scope.data)
             .success(function(res, status) {
                 Data.atualizarTerrenos();
+                Data.atualizarCidades();
             });
         else
             $http.post('http://localhost:3003/terreno/', $scope.data)
             .success(function(res, status) {
                 Data.atualizarTerrenos();
+                Data.atualizarCidades();
             });
     }
+
+    $scope.excluirTerreno = function() {
+        $http.delete('http://localhost:3003/terreno/' + $scope.data.id, {})
+        .success(function(res, status) {
+            Data.atualizarTerrenos();
+            Data.atualizarCidades();
+        });
+    };
+
+    $scope.confirmarExclusaoTerreno = function() {
+        Modal.open('terreno-exclusao', $scope.data);
+    };
 
     $scope.salvarUsuario = function() {
         if ($scope.data.id)
             $http.put('http://localhost:3003/usuario/' + $scope.data.id, $scope.data)
             .success(function(res, status) {
                 Data.atualizarUsuarios();
+                Data.atualizarAdministracoes();
             });
         else
             $http.post('http://localhost:3003/usuario/', $scope.data)
             .success(function(res, status) {
                 Data.atualizarUsuarios();
+                Data.atualizarAdministracoes();
             });
     }
+
+    $scope.excluirUsuario = function() {
+        $http.delete('http://localhost:3003/usuario/' + $scope.data.id, {})
+        .success(function(res, status) {
+            Data.atualizarUsuario();
+            Data.atualizarAdministracoes();
+        });
+    };
+
+    $scope.confirmarExclusaoUsuario = function() {
+        Modal.open('usuario-exclusao', $scope.data);
+    };
 }

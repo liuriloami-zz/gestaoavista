@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="usuario in usuarios" class="clickable" ng-click="editarUsuario(usuario)" ng-cloak>
+        <tr ng-repeat="usuario in usuarios | orderBy:'id'" class="clickable" ng-click="editarUsuario(usuario)" ng-cloak>
             <td>{{ usuario.id }}</td>
             <td>{{ usuario.nome }}</td>
             <td>{{ usuario.email }}</td>

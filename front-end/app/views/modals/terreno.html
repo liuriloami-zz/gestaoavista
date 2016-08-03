@@ -12,25 +12,27 @@
                 </div>
                 <div class="form-group">
                     <label>Cidade</label>
-                    <select required class="form-control" ng-options="cidade as cidade.nome for cidade in cidades track by cidade.id" ng-model="data.cidade"></select>
+                    <select required class="form-control" ng-options="cidade as cidade.nome for cidade in cidades track by cidade.id" ng-model="data.cidade">
+                        <option selected disabled value="">Selecione uma cidade</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Zona urbana?</label>
-                    <select required class="form-control" ng-model="data.zona_urbana">
+                    <select class="form-control" ng-model="data.zona_urbana">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Unificação de lotes?</label>
-                    <select required class="form-control" ng-model="data.unificacao">
+                    <select class="form-control" ng-model="data.unificacao">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Possui registro?</label>
-                    <select required class="form-control" ng-model="data.registro">
+                    <select class="form-control" ng-model="data.registro">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -42,6 +44,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" ng-if="data.id" ng-click="confirmarExclusaoTerreno()">Excluir</button>
                 <button type="submit" class="btn btn-success">Salvar informações</button>
             </div>
         </div>

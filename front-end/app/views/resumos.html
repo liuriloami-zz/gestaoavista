@@ -1,8 +1,8 @@
 <div class="btn-group pull-right hidden-print" role="group" aria-label="...">
     <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
 </div>
-<div ng-repeat="administracao in administracoes">
-    <h1>Resumo da administração de <b>{{ administracao.nome }}</b></h1>
+<div ng-repeat="resumo in resumos">
+    <h1>Resumo de <b>{{ resumo.administracao }}</b></h1>
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
@@ -12,32 +12,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="resumo in resumos" ng-cloak>
-                <td>{{ resumo.nome }}</td>
-                <td>{{ resumo.valor }}</td>
-                <td>{{ resumo.porcentagem }}</td>
+            <tr ng-repeat="item in resumo.lista | orderBy:'nome'" ng-cloak>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.valor }}</td>
+                <td>{{ item.porcentagem }}</td>
             </tr>
         </tbody>
     </table>
     <br>
-</div>
-
-<div ng-if="tipo == 'regional'">
-    <h1><b>Resumo da regional</b></h1>
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Porcentagem (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="resumo in resumos" ng-cloak>
-                <td>{{ resumo.nome }}</td>
-                <td>{{ resumo.valor }}</td>
-                <td>{{ resumo.porcentagem }}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>

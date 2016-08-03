@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="casa_oracao in casas_oracao" class="clickable" ng-click="editarCasaOracao('informacoes-gerais', casa_oracao)" ng-cloak>
+        <tr ng-repeat="casa_oracao in casas_oracao | orderBy:'codigo'" class="clickable" ng-click="editarCasaOracao('informacoes-gerais', casa_oracao)" ng-cloak>
             <td>{{ casa_oracao.codigo }}</td>
             <td>{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</td>
             <td ng-class="gerarCor(casa_oracao.geral.habite_se)">

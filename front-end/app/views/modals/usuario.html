@@ -16,22 +16,27 @@
                 </div>
                 <div class="form-group">
                     <label>Senha</label>
-                    <input type="password" class="form-control" ng-model="data.senha">
+                    <input required type="password" class="form-control" ng-if="!data.id" ng-model="data.senha">
+                    <input type="password" class="form-control" ng-if="data.id" ng-model="data.senha">
                 </div>
                 <div class="form-group">
                     <label>Tipo</label>
                     <select required ng-model="data.tipo" class="form-control">
-                        <option ng-value="administrador">Administrador</option>
-                        <option ng-value="comum">Usuário comum</option>
+                        <option selected disabled value="">Selecione o tipo..</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Comum">Usuário comum</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Administração</label>
-                    <select required class="form-control" ng-options="administracao as administracao.nome for administracao in administracoes track by administracao.id" ng-model="data.administracao"></select>
+                    <select required class="form-control" ng-options="administracao as administracao.nome for administracao in administracoes track by administracao.id" ng-model="data.administracao">
+                        <option value="">Selecione a administração..</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" ng-if="data.id" ng-click="confirmarExclusaoUsuario()">Excluir</button>
                 <button type="submit" class="btn btn-success">Salvar informações</button>
             </div>
         </div>

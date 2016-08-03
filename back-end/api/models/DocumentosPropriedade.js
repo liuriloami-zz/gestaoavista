@@ -9,6 +9,10 @@ module.exports = {
       enum: [ 'Rural / Cedido', 'Rural / Proprio', 
       'Cedido', 'Proprio', 'Alugado' ]
     },
+    checklist: {
+      type: 'string',
+      enum: [ 'sim', 'nao']
+    },
     escritura: {
       type: 'string',
       enum: [ 'sim', 'nao']

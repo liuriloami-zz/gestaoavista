@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Código da casa de oração</label>
-                    <input required type="text" class="form-control" placeholder="Código" ng-model="data.id">
+                    <input disabled type="text" class="form-control" placeholder="Código" ng-model="data.id">
                 </div>
                 <div class="form-group">
                     <label>Casa de oração</label>
@@ -16,35 +16,35 @@
                 </div>
                 <div class="form-group">
                     <label>Checklist</label>
-                    <select required class="form-control" ng-model="data.documentos_propriedade.checklist">
+                    <select class="form-control" ng-model="data.documentos_propriedade.checklist">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Possui escritura?</label>
-                    <select required class="form-control" ng-model="data.documentos_propriedade.escritura">
+                    <select class="form-control" ng-model="data.documentos_propriedade.escritura">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Obra foi baixada na receita?</label>
-                    <select required class="form-control" ng-model="data.documentos_propriedade.baixada_receita">
+                    <select class="form-control" ng-model="data.documentos_propriedade.baixada_receita">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Está averbada?</label>
-                    <select required class="form-control" ng-model="data.documentos_propriedade.averbacao">
+                    <select class="form-control" ng-model="data.documentos_propriedade.averbacao">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group" ng-if="data.documentos_propriedade.averbacao == 'sim'">
                     <label>Averbação total ou parcial?</label>
-                    <select required class="form-control" ng-model="data.documentos_propriedade.averbacao_parcela">
+                    <select class="form-control" ng-model="data.documentos_propriedade.averbacao_parcela">
                         <option value="Total">Total</option>
                         <option value="Parcial">Parcial</option>
                     </select>

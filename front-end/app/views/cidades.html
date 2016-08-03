@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="cidade in cidades" class="clickable" ng-click="editarCidade(cidade)" ng-cloak>
+        <tr ng-repeat="cidade in cidades | orderBy:'id'" class="clickable" ng-click="editarCidade(cidade)" ng-cloak>
             <td>{{ cidade.id }}</td>
             <td>{{ cidade.nome }}</td>
             <td>{{ cidade.administracao.nome }}</td>

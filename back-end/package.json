@@ -80,6 +80,7 @@
     "sails-service-pusher": "^3.2.2",
     "sigmoid": "0.0.1",
     "skipper-s3": "^0.5.6",
+    "slug": "^0.9.1",
     "url-parse": "^1.1.1",
     "uuid": "^2.0.2",
     "waterline-schema": "^0.2.0",

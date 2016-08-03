@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="administracao in administracoes" class="clickable" ng-click="editarAdministracao(administracao)" ng-cloak>
+        <tr ng-repeat="administracao in administracoes | orderBy:'id'" class="clickable" ng-click="editarAdministracao(administracao)" ng-cloak>
             <td>{{ administracao.id }}</td>
             <td>{{ administracao.nome }}</td>
         </tr>

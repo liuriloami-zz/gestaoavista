@@ -29,7 +29,7 @@ function TerrenosController($scope, Data, Modal) {
     };
 
     $scope.novoTerreno = function() {
-        Modal.open('terreno', {});
+        Modal.open('terreno', null);
     }
 
     $scope.editarTerreno = function(terreno) {

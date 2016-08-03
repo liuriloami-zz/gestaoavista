@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="terreno in terrenos" class="clickable" ng-click="editarTerreno(terreno)" ng-cloak>
+        <tr ng-repeat="terreno in terrenos | orderBy:'id'" class="clickable" ng-click="editarTerreno(terreno)" ng-cloak>
             <td>{{ terreno.id }}</td>
             <td>{{ terreno.cidade.nome }}</td>
             <td>{{ terreno.nome }}</td>

@@ -1,8 +1,5 @@
 module.exports = {
   attributes: {
-    codigo: {
-      type: 'string'
-    },
     cidade: {
       model: 'Cidade',
       via: 'coletas'
@@ -45,7 +42,23 @@ module.exports = {
     especial_ag_lindoia: {
       type: 'float',
       defaultsTo: 0
+    },
+    total: {
+      type: 'float',
+      defaultsTo: 0
     }
+  },
+  beforeCreate: function(coleta, callback) {
+    coleta.total = coleta.construcao + coleta.piedade + coleta.viagens + 
+    coleta.manutencao + coleta.assembleia + coleta.especial_brasil +
+    coleta.especial_terreno + coleta.especial_reg_amparo + coleta.especial_ag_lindoia;
+    callback();
+  },
+  beforeUpdate: function(coleta, callback) {
+    coleta.total = coleta.construcao + coleta.piedade + coleta.viagens + 
+    coleta.manutencao + coleta.assembleia + coleta.especial_brasil +
+    coleta.especial_terreno + coleta.especial_reg_amparo + coleta.especial_ag_lindoia;
+    callback();
   }
 };
 

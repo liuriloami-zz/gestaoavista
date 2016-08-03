@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Código da casa de oração</label>
-                    <input required type="text" class="form-control" placeholder="Código" ng-model="data.id">
+                    <input disabled type="text" class="form-control" placeholder="Código" ng-model="data.id">
                 </div>
                 <div class="form-group">
                     <label>Casa de oração</label>
@@ -16,14 +16,14 @@
                 </div>
                 <div class="form-group">
                     <label>Confrontacao realizada?</label>
-                    <select required class="form-control" ng-model="data.confrontacao.realizada">
+                    <select class="form-control" ng-model="data.confrontacao.realizada">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Há divergência?</label>
-                    <select required class="form-control" ng-model="data.confrontacao.divergencia">
+                    <select class="form-control" ng-model="data.confrontacao.divergencia">
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>

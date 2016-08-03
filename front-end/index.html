@@ -10,14 +10,19 @@
     <body>
         <div ng-controller="ModalController">
             <div ng-include="'modals/cidade.html'"></div>
+            <div ng-include="'modals/cidade-exclusao.html'"></div>
             <div ng-include="'modals/administracao.html'"></div>
+            <div ng-include="'modals/administracao-exclusao.html'"></div>
             <div ng-include="'modals/usuario.html'"></div>
+            <div ng-include="'modals/usuario-exclusao.html'"></div>
             <div ng-include="'modals/informacoes-gerais.html'"></div>
+            <div ng-include="'modals/casaoracao-exclusao.html'"></div>
             <div ng-include="'modals/projetos.html'"></div>
             <div ng-include="'modals/confrontacao.html'"></div>
             <div ng-include="'modals/documentos-propriedade.html'"></div>
             <div ng-include="'modals/manutencao-preventiva.html'"></div>
             <div ng-include="'modals/terreno.html'"></div>
+            <div ng-include="'modals/terreno-exclusao.html'"></div>
             <div ng-include="'modals/coletas.html'"></div>
         </div>
 
@@ -49,18 +54,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coletas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li ng-repeat="casa_oracao in casas_oracao"><a ng-href="/coletas/{{ casa_oracao.cidade.slug }}/{{ casa_oracao.slug }}">{{ casa_oracao.cidade.nome }} - {{ casa_oracao.nome }}</a></li>
+                            <li ng-repeat="cidade in cidades"><a ng-href="/coletas/{{ cidade.slug }}">{{ cidade.nome }}</a></li>
+                            <li><a href="/coletas/resumo">Resumo da administração</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resumos <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li ng-repeat="cidade in cidades"><a ng-href="/coletas/{{ cidade.slug }}">Coletas - {{ cidade.nome }}</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="/resumos/local">Administração Local</a></li>
-                            <li><a href="/resumos/regional">Regional</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/resumos">Resumos</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

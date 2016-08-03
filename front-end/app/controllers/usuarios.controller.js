@@ -13,7 +13,7 @@ function UsuariosController($scope, Data, Modal) {
     });
 
     $scope.novoUsuario = function() {
-        Modal.open('usuario', {});
+        Modal.open('usuario', null);
     }
 
     $scope.editarUsuario = function(usuario) {

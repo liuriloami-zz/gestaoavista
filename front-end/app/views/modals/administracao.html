@@ -13,6 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" ng-if="data.id && data.cidades.length == 0 && data.usuarios.length == 0" ng-click="confirmarExclusaoAdministracao()">Excluir</button>
                 <button type="submit" class="btn btn-success">Salvar informações</button>
             </div>
         </div>

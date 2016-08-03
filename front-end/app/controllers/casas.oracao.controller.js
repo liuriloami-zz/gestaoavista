@@ -29,7 +29,7 @@ function CasasOracaoController($scope, Data, Modal) {
     };
 
     $scope.novaCasaOracao = function(modal) {
-        Modal.open(modal, {});
+        Modal.open(modal, null);
     }
 
     $scope.editarCasaOracao = function(modal, casa_oracao) {

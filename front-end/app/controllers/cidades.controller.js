@@ -13,7 +13,7 @@ function CidadesController($scope, Data, Modal) {
     });
 
     $scope.novaCidade = function() {
-        Modal.open('cidade', {});
+        Modal.open('cidade', null);
     }
 
     $scope.editarCidade = function(cidade) {
