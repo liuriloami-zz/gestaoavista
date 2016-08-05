@@ -15,6 +15,21 @@
                     <input disabled type="text" class="form-control" placeholder="Casa de oração" value="{{ data.cidade.nome }} - {{ data.nome }}">
                 </div>
                 <div class="form-group">
+                    <label>Tipo de imóvel</label>
+                    <select class="form-control" ng-model="data.documentos_propriedade.tipo_imovel">
+                        <option value="Proprio">Próprio</option>
+                        <option value="Alugado">Alugado</option>
+                        <option value="Cedido">Cedido</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Zona Rural?</label>
+                    <select class="form-control" ng-model="data.documentos_propriedade.zona_rural">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Checklist</label>
                     <select class="form-control" ng-model="data.documentos_propriedade.checklist">
                         <option value="sim">Sim</option>

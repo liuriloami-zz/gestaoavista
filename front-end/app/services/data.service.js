@@ -311,7 +311,7 @@ function DataService($http, Modal, $cookies) {
     }
         
     data.atualizarAdministracoes = function() {
-        $http.get('http://localhost:3003/administracao', {})
+        $http.get('http://52.67.32.2:3003/administracao', {})
         .success(function(res, status) {
             data.administracoes = res;
             if (data.usuario && data.usuario.tipo == 'Comum')
@@ -323,7 +323,7 @@ function DataService($http, Modal, $cookies) {
     };
     
     data.atualizarUsuarios = function() {
-        $http.get('http://localhost:3003/usuario', {})
+        $http.get('http://52.67.32.2:3003/usuario', {})
         .success(function(res, status) {
             data.usuarios = res;
             Modal.closeAll();
@@ -331,7 +331,7 @@ function DataService($http, Modal, $cookies) {
     };
 
     data.atualizarCidades = function() {
-        $http.get('http://localhost:3003/cidade', {})
+        $http.get('http://52.67.32.2:3003/cidade', {})
         .success(function(res, status) {
             data.cidades = res;
             if (data.usuario && data.usuario.tipo == 'Comum')
@@ -343,7 +343,7 @@ function DataService($http, Modal, $cookies) {
     };
 
     data.atualizarTerrenos = function() {   
-        $http.get('http://localhost:3003/terreno', {})
+        $http.get('http://52.67.32.2:3003/terreno', {})
         .success(function(res, status) {
             data.terrenos = res;
             if (data.usuario && data.usuario.tipo == 'Comum')
@@ -355,7 +355,7 @@ function DataService($http, Modal, $cookies) {
     };
 
     data.atualizarCasasOracao = function() {
-        $http.get('http://localhost:3003/casaoracao', {})
+        $http.get('http://52.67.32.2:3003/casaoracao', {})
         .success(function(res, status) {
             data.casas_oracao = res;
             if (data.usuario && data.usuario.tipo == 'Comum')

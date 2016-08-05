@@ -8,7 +8,7 @@
             <th>#</th>
             <th>Casa de oração</th>
             <th>Confrontação Realizada?</th>
-            <th>Há divergência?</th>
+            <th>Há concordância?</th>
             <th>Metragem</th>
         </tr>
     </thead>
@@ -19,8 +19,8 @@
             <td ng-class="gerarCor(casa_oracao.confrontacao.realizada)">
                 <i ng-class="gerarIcone(casa_oracao.confrontacao.realizada)"></i>
             </td>
-            <td ng-class="gerarCor(casa_oracao.confrontacao.divergencia)">
-                <i ng-class="gerarIcone(casa_oracao.confrontacao.divergencia)"></i>
+            <td ng-class="gerarCor(casa_oracao.confrontacao.concordancia)">
+                <i ng-class="gerarIcone(casa_oracao.confrontacao.concordancia)"></i>
             </td>
             <td>{{ casa_oracao.confrontacao.metragem }}</td>
         </tr>

@@ -8,7 +8,7 @@ module.exports = {
       type: 'string',
       enum: [ 'sim', 'nao']
     },
-    divergencia: {
+    concordancia: {
       type: 'string',
       enum: [ 'sim', 'nao']
     },

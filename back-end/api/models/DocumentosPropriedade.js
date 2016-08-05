@@ -4,10 +4,13 @@ module.exports = {
       model: 'CasaOracao',
       via: 'confrontacao'
     },
-    situacao: {
+    tipo_imovel: {
       type: 'string',
-      enum: [ 'Rural / Cedido', 'Rural / Proprio', 
-      'Cedido', 'Proprio', 'Alugado' ]
+      enum: [ 'Proprio', 'Alugado', 'Cedido' ]
+    },
+    zona_rural: {
+      type: 'string',
+      enum: [ 'sim', 'nao' ]
     },
     checklist: {
       type: 'string',
