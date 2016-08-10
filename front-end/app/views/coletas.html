@@ -1,11 +1,11 @@
-<h1><b>Coletas:</b> {{ titulo }}</h1>
+<h1><b>{{ titulo }}</b></h1>
 <div class="btn-group pull-right hidden-print" role="group" aria-label="...">
     <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
 </div>
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>Mês</th>
+            <th>Casa de oração</th>
             <th>Construção</th>
             <th>Obra Piedade / R. Mocidade</th>
             <th>Viagens missionárias</th>
@@ -19,18 +19,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="coleta in coletas" class="clickable" ng-click="editarColeta(coleta)" ng-cloak>
-            <th>{{ coleta.mes }}</th>
-            <td>{{ coleta.construcao }}</td>
-            <td>{{ coleta.piedade }}</td>
-            <td>{{ coleta.viagens }}</td>
-            <td>{{ coleta.manutencao }}</td>
-            <td>{{ coleta.assembleia }}</td>
-            <td>{{ coleta.especial_brasil }}</td>
-            <td>{{ coleta.especial_terreno }}</td>
-            <td>{{ coleta.especial_reg_amparo }}</td>
-            <td>{{ coleta.especial_ag_lindoia }}</td>
-            <td>{{ coleta.total }}</td>
+        <tr ng-repeat="casa_oracao in casas_oracao | orderBy:['cidade.nome', 'nome']" class="clickable" ng-click="editarColeta(casa_oracao)" ng-cloak>
+            <td>{{ casa_oracao.cidade.nome + ' - ' + casa_oracao.nome }}</td>
+            <td>{{ casa_oracao.coleta.construcao }}</td>
+            <td>{{ casa_oracao.coleta.piedade }}</td>
+            <td>{{ casa_oracao.coleta.viagens }}</td>
+            <td>{{ casa_oracao.coleta.manutencao }}</td>
+            <td>{{ casa_oracao.coleta.assembleia }}</td>
+            <td>{{ casa_oracao.coleta.especial_brasil }}</td>
+            <td>{{ casa_oracao.coleta.especial_terreno }}</td>
+            <td>{{ casa_oracao.coleta.especial_reg_amparo }}</td>
+            <td>{{ casa_oracao.coleta.especial_ag_lindoia }}</td>
+            <td>{{ casa_oracao.coleta.total }}</td>
         </tr>
     </tbody>
 </table>

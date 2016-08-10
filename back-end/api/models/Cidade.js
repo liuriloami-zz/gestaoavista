@@ -19,10 +19,6 @@ module.exports = {
       collection: 'CasaOracao',
       via: 'cidade'
     },
-    coletas: {
-      collection: 'Coleta',
-      via: 'cidade'
-    },
     terrenos: {
       collection: 'Terreno',
       via: 'cidade'

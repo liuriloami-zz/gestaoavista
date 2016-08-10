@@ -8,6 +8,8 @@ function NavbarController($scope, Data, Modal, $cookies, $location) {
     $scope.Modal = Modal;
     $scope.Data = Data;
     
+    $scope.meses = Data.getMeses();
+    
     $scope.$watch('Data.getCasasOracao()', function(casas_oracao) {
         $scope.casas_oracao = casas_oracao;
     });

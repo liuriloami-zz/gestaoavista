@@ -1,4 +1,4 @@
-<form ng-submit="salvarColetas()" class="modal fade" id="coletas" coletas>
+<form ng-submit="salvarColeta()" class="modal fade" id="coletas" coletas>
     <div class="modal-dialog" ng-if="Modal.getTitle() == 'coletas'">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,47 +8,47 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Casa de oração</label>
-                    <input disabled type="text" class="form-control" value="Águas de Lindoia - Bela Vista">
+                    <input disabled type="text" class="form-control" value="{{ data.cidade.nome + ' - ' + data.nome }}">
                 </div>
                 <div class="form-group">
                     <label>Mês:</label>
-                    <input disabled type="text" class="form-control" value="Janeiro">
+                    <input disabled type="text" class="form-control" value="{{ data.coleta.mes }}">
                 </div>
                 <div class="form-group">
                     <label>Construção:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.construcao">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.construcao">
                 </div>
                 <div class="form-group">
                     <label>Obra da piedade / Reunião da mocidade:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.piedade">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.piedade">
                 </div>
                 <div class="form-group">
                     <label>Viagens missionárias:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.viagens">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.viagens">
                 </div>
                 <div class="form-group">
                     <label>Manutenção:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.manutencao">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.manutencao">
                 </div>
                 <div class="form-group">
                     <label>Assembleia:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.assembleia">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.assembleia">
                 </div>
                 <div class="form-group">
                     <label>Especial Brasil:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.especial_brasil">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.especial_brasil">
                 </div>
                 <div class="form-group">
                     <label>Especial Terreno:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.especial_terreno">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.especial_terreno">
                 </div>
                 <div class="form-group">
                     <label>Especial da região de Amparo:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.especial_reg_amparo">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.especial_reg_amparo">
                 </div>
                 <div class="form-group">
                     <label>Especial de Águas de Lindoia:</label>
-                    <input type="number" step="0.01" class="form-control" ng-model="data.especial_ag_lindoia">
+                    <input type="number" step="0.01" class="form-control" ng-model="data.coleta.especial_ag_lindoia">
                 </div>
             </div>
             <div class="modal-footer">

@@ -1,7 +1,7 @@
 module.exports = {
   attributes: {
-    cidade: {
-      model: 'Cidade',
+    casa_oracao: {
+      model: 'CasaOracao',
       via: 'coletas'
     },
     mes: {

@@ -29,7 +29,11 @@ module.exports = {
     projetos: {
       model: 'Projetos',
       via: 'casa_oracao'
-    }
+    },
+    coletas: {
+      collection: 'Coleta',
+      via: 'casa_oracao'
+    },
   }
 };
 

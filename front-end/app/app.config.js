@@ -25,7 +25,7 @@ angular
             templateUrl: 'usuarios.html',
             controller: 'UsuariosController'
         })
-        .when('/coletas/:cidade_slug', {
+        .when('/coletas/:mes', {
             templateUrl: 'coletas.html',
             controller: 'ColetasController'
         })
