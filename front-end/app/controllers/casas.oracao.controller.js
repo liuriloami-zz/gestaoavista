@@ -30,10 +30,14 @@ function CasasOracaoController($scope, Data, Modal) {
     };
 
     $scope.novaCasaOracao = function(modal) {
-        Modal.open(modal, null);
-    }
+        if ($scope.usuario.tipo == 'Administrador') {
+            Modal.open(modal, null);
+        }
+    };
 
     $scope.editarCasaOracao = function(modal, casa_oracao) {
-        Modal.open(modal, casa_oracao);
-    }
+        if ($scope.usuario.tipo != 'Geral') {
+            Modal.open(modal, casa_oracao);
+        }
+    };
 }

@@ -22,8 +22,9 @@
                     <label>Tipo</label>
                     <select required ng-model="data.tipo" class="form-control">
                         <option selected disabled value="">Selecione o tipo..</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Comum">Usuário comum</option>
+                        <option value="Administrador">Administrador (edita todas as administrações)</option>
+                        <option value="Comum">Usuário comum (edita a própria administração)</option>
+                        <option value="Geral">Usuário geral (visualiza todas as administrações)</option>
                     </select>
                 </div>
                 <div class="form-group">

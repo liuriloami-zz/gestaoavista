@@ -11,7 +11,7 @@ module.exports = {
     },
     tipo: {
       type: 'string',
-      enum: [ 'Administrador', 'Comum' ]
+      enum: [ 'Administrador', 'Comum', 'Geral' ]
     },
     administracao: {
       model: 'Administracao',
