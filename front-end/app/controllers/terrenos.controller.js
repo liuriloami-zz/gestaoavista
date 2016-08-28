@@ -7,11 +7,7 @@ TerrenosController.$inject = ['$scope', 'Data', 'Modal'];
 function TerrenosController($scope, Data, Modal) {
     $scope.Modal = Modal;
     $scope.Data = Data;
-    
     $scope.usuario = Data.getUsuario();
-    if ($scope.usuario.tipo != 'Administrador') {
-        $location.path('/informacoes-gerais');
-    }
 
     $scope.$watch('Data.getTerrenos()', function(terrenos) {
         $scope.terrenos = terrenos;
@@ -34,11 +30,15 @@ function TerrenosController($scope, Data, Modal) {
     };
 
     $scope.novoTerreno = function() {
-        Modal.open('terreno', null);
+        if ($scope.usuario.tipo != 'Geral') {
+            Modal.open('terreno', null);
+        }
     }
 
     $scope.editarTerreno = function(terreno) {
-        Modal.open('terreno', terreno);
+        if ($scope.usuario.tipo != 'Geral') {
+            Modal.open('terreno', terreno);
+        }
     }
 
 }

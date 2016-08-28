@@ -156,7 +156,7 @@ function ModalController($scope, Modal, Data, $http) {
     $scope.excluirUsuario = function() {
         $http.delete('http://52.67.32.2:3003/usuario/' + $scope.data.id, {})
         .success(function(res, status) {
-            Data.atualizarUsuario();
+            Data.atualizarUsuarios();
             Data.atualizarAdministracoes();
         });
     };

@@ -27,7 +27,7 @@
                         <option value="Geral">Usuário geral (visualiza todas as administrações)</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div ng-if="data.tipo == 'Comum'" class="form-group">
                     <label>Administração</label>
                     <select required class="form-control" ng-options="administracao as administracao.nome for administracao in administracoes track by administracao.id" ng-model="data.administracao">
                         <option value="">Selecione a administração..</option>
