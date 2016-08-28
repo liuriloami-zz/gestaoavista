@@ -23,6 +23,10 @@ module.exports = {
       type: 'float',
       defaultsTo: 0
     },
+    despesas: {
+      type: 'float',
+      defaultsTo: 0
+    },
     assembleia: {
       type: 'float',
       defaultsTo: 0
