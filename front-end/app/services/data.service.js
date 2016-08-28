@@ -70,32 +70,38 @@ function DataService($http, Modal, $cookies) {
         var meses = ['Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho',
         'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         var resumo = [];
-        var cidades = data.getCidades();
+        var administracoes = data.getAdministracoes();
+        var casas_oracao = data.getCasasOracao();
         
-        meses.forEach(function(mes) {
-            var resumoMes = {
-                mes: mes,
-                cidade: 0,
-                construcao: 0,
-                piedade: 0,
-                viagens: 0,
-                manutencao: 0,
-                assembleia: 0,
-                especial_brasil: 0,
-                especial_terreno: 0,
-                especial_reg_amparo: 0,
-                especial_ag_lindoia: 0,
-                total: 0
-            };
-            cidades.forEach(function(cidade) {
-                cidade.coletas.forEach(function(coleta) {
-                    if (resumoMes.mes == coleta.mes)
+        administracoes.forEach(function(administracao) {
+            meses.forEach(function(mes) {
+                var resumoMes = {
+                    administracao: administracao.nome,
+                    mes: mes,
+                    cidade: 0,
+                    construcao: 0,
+                    piedade: 0,
+                    viagens: 0,
+                    manutencao: 0,
+                    despesas: 0,
+                    assembleia: 0,
+                    especial_brasil: 0,
+                    especial_terreno: 0,
+                    especial_reg_amparo: 0,
+                    especial_ag_lindoia: 0,
+                    total: 0
+                };
+                casas_oracao.forEach(function(casa_oracao) {
+                    if (casa_oracao.cidade.administracao != administracao.id) return;
+                    casa_oracao.coletas.forEach(function(coleta) {
+                        if (resumoMes.mes != coleta.mes) return;
                         for (var tipo in coleta)
                             if (tipo != 'mes')
                                 resumoMes[tipo] += coleta[tipo];
+                    });
                 });
+                resumo.push(resumoMes);
             });
-            resumo.push(resumoMes);
         });
         return resumo;
     };

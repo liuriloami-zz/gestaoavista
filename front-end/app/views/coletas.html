@@ -2,7 +2,7 @@
 <div class="btn-group pull-right hidden-print" role="group" aria-label="...">
     <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
 </div>
-<table class="table table-hover table-bordered">
+<table ng-if="editavel" class="table table-hover table-bordered">
     <thead>
         <tr>
             <th>Casa de oração</th>
@@ -33,6 +33,43 @@
             <td>{{ casa_oracao.coleta.especial_reg_amparo }}</td>
             <td>{{ casa_oracao.coleta.especial_ag_lindoia }}</td>
             <td>{{ casa_oracao.coleta.total }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table ng-if="!editavel" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Administração</th>
+            <th>Mês</th>
+            <th>Construção</th>
+            <th>Obra Piedade / R. Mocidade</th>
+            <th>Viagens missionárias</th>
+            <th>Manutenção</th>
+            <th>Despesas</th>
+            <th>Assembleia</th>
+            <th>Especial Brasil</th>
+            <th>Especial Terreno</th>
+            <th>Especial Reg. Amparo</th>
+            <th>Especial Águas de Lindoia</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="mes in resumo | orderBy:'administracao'" ng-cloak>
+            <td><b>{{ mes.mes == 'Janeiro' ? mes.administracao: '' }}</b></td>
+            <td>{{ mes.mes }}</td>
+            <td>{{ mes.construcao }}</td>
+            <td>{{ mes.piedade }}</td>
+            <td>{{ mes.viagens }}</td>
+            <td>{{ mes.manutencao }}</td>
+            <td>{{ mes.despesas }}</td>
+            <td>{{ mes.assembleia }}</td>
+            <td>{{ mes.especial_brasil }}</td>
+            <td>{{ mes.especial_terreno }}</td>
+            <td>{{ mes.especial_reg_amparo }}</td>
+            <td>{{ mes.especial_ag_lindoia }}</td>
+            <td>{{ mes.total }}</td>
         </tr>
     </tbody>
 </table>

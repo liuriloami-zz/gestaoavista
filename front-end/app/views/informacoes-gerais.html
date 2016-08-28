@@ -1,7 +1,7 @@
 <h1><b>Casas de Oração:</b> Informações Gerais</h1>
 <div class="btn-group pull-right hidden-print" role="group" aria-label="...">
     <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
-    <a class="btn btn-success" href="#" ng-click="novaCasaOracao('informacoes-gerais')">Nova casa de oração</a>
+    <a ng-if="usuario.tipo != 'Comum'" class="btn btn-success" href="#" ng-click="novaCasaOracao('informacoes-gerais')">Nova casa de oração</a>
 </div>
 <table class="table table-hover table-bordered">
     <thead>

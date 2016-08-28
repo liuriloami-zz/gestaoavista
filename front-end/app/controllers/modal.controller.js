@@ -7,6 +7,7 @@ ModalController.$inject = ['$scope', 'Modal', 'Data', '$http'];
 function ModalController($scope, Modal, Data, $http) {
     $scope.Data = Data;
     $scope.Modal = Modal;
+    $scope.usuario = Data.getUsuario();
 
     $scope.$watch('Modal.getData()', function(data) {
         $scope.data = data;

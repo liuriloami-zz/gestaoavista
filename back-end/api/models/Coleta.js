@@ -54,13 +54,13 @@ module.exports = {
   },
   beforeCreate: function(coleta, callback) {
     coleta.total = coleta.construcao + coleta.piedade + coleta.viagens + 
-    coleta.manutencao + coleta.assembleia + coleta.especial_brasil +
+    coleta.manutencao + coleta.assembleia + coleta.especial_brasil + coleta.despesas +
     coleta.especial_terreno + coleta.especial_reg_amparo + coleta.especial_ag_lindoia;
     callback();
   },
   beforeUpdate: function(coleta, callback) {
     coleta.total = coleta.construcao + coleta.piedade + coleta.viagens + 
-    coleta.manutencao + coleta.assembleia + coleta.especial_brasil +
+    coleta.manutencao + coleta.assembleia + coleta.especial_brasil + coleta.despesas +
     coleta.especial_terreno + coleta.especial_reg_amparo + coleta.especial_ag_lindoia;
     callback();
   }

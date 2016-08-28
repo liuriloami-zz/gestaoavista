@@ -10,7 +10,6 @@ function LoginController($scope, Data, Modal, $cookies, $location) {
     $scope.erro = false;
 
     $scope.login = function() {
-        console.log(Data.getUsuarios());
         var usuario = Data.getUsuarios().filter(function(usuario) {
             return usuario.email == $scope.email && usuario.senha == $scope.senha;
         });

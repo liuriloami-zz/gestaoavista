@@ -7,7 +7,8 @@ CasasOracaoController.$inject = ['$scope', 'Data', 'Modal'];
 function CasasOracaoController($scope, Data, Modal) {
     $scope.Modal = Modal;
     $scope.Data = Data;
-
+    $scope.usuario = Data.getUsuario();
+    
     $scope.$watch('Data.getCasasOracao()', function(casas_oracao) {
         $scope.casas_oracao = casas_oracao;
     });
