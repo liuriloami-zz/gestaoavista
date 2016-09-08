@@ -19,7 +19,7 @@ function DataService($http, Modal, $cookies) {
         var meses = [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
         'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         var agora = new Date();
-        return meses.slice(0, agora.getMonth() + 1);
+        return meses.slice(0, agora.getMonth());
     };
 
     data.getUsuario = function() {
@@ -33,7 +33,12 @@ function DataService($http, Modal, $cookies) {
     };
 
     data.getAdministracoes = function() {
-        return data.administracoes;
+        if (!data.administracoes) return [];
+        return data.administracoes.sort(function(a, b) {
+            if (a.nome < b.nome) return -1;
+            if (a.nome > b.nome) return 1;
+            return 0;
+        });
     };
 
     data.getUsuarios = function() {
@@ -67,13 +72,27 @@ function DataService($http, Modal, $cookies) {
     };
     
     data.getResumoColetas = function() {
-        var meses = ['Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        var meses = data.getMeses();
         var resumo = [];
         var administracoes = data.getAdministracoes();
         var casas_oracao = data.getCasasOracao();
-        
         administracoes.forEach(function(administracao) {
+            var resumoTotal = {
+                administracao: administracao.nome,
+                mes: 'Total',
+                cidade: 0,
+                construcao: 0,
+                piedade: 0,
+                viagens: 0,
+                manutencao: 0,
+                despesas: 0,
+                assembleia: 0,
+                especial_brasil: 0,
+                especial_terreno: 0,
+                especial_reg_amparo: 0,
+                especial_ag_lindoia: 0,
+                total: 0
+            };
             meses.forEach(function(mes) {
                 var resumoMes = {
                     administracao: administracao.nome,
@@ -96,17 +115,69 @@ function DataService($http, Modal, $cookies) {
                     casa_oracao.coletas.forEach(function(coleta) {
                         if (resumoMes.mes != coleta.mes) return;
                         for (var tipo in coleta)
-                            if (tipo != 'mes')
-                                resumoMes[tipo] += coleta[tipo];
+                            if (tipo != 'mes') {
+                              resumoMes[tipo] += coleta[tipo];
+                              resumoTotal[tipo] += coleta[tipo];
+                            }
                     });
                 });
                 resumo.push(resumoMes);
             });
+            resumo.push(resumoTotal);
         });
+        if (administracoes.length > 1) {
+            var totalGeral = {
+                administracao: 'Acumulado',
+                mes: 'Total Geral',
+                cidade: 0,
+                construcao: 0,
+                piedade: 0,
+                viagens: 0,
+                manutencao: 0,
+                despesas: 0,
+                assembleia: 0,
+                especial_brasil: 0,
+                especial_terreno: 0,
+                especial_reg_amparo: 0,
+                especial_ag_lindoia: 0,
+                total: 0
+            };
+            meses.forEach(function(mes) {
+                var resumoMes = {
+                    administracao: 'Acumulado',
+                    mes: mes,
+                    cidade: 0,
+                    construcao: 0,
+                    piedade: 0,
+                    viagens: 0,
+                    manutencao: 0,
+                    despesas: 0,
+                    assembleia: 0,
+                    especial_brasil: 0,
+                    especial_terreno: 0,
+                    especial_reg_amparo: 0,
+                    especial_ag_lindoia: 0,
+                    total: 0
+                };
+                casas_oracao.forEach(function(casa_oracao) {
+                    casa_oracao.coletas.forEach(function(coleta) {
+                        if (resumoMes.mes != coleta.mes) return;
+                        for (var tipo in coleta)
+                            if (tipo != 'mes') {
+                                resumoMes[tipo] += coleta[tipo];
+                                totalGeral[tipo] += coleta[tipo];
+                            }
+                    });
+                });
+                resumo.push(resumoMes);
+            });
+            resumo.push(totalGeral);
+        }
         return resumo;
     };
 
     data.getResumos = function() {
+        if (data.resumos.length > 0) return data.resumos;
         var resumoFinal = {
             administracao: 'todas as administrações',
             lista: [
@@ -197,8 +268,11 @@ function DataService($http, Modal, $cookies) {
             resumoFinal.lista[0].valor += nCasasOracao;
             resumoFinal.lista[0].porcentagem += nCasasOracao;
 
-            resumoFinal.lista[1].valor += 0;
-            resumoFinal.lista[1].porcentagem += 0;
+            var nZonaRural = casas_oracao.filter(function(casa_oracao) {
+                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.zona_rural == 'sim';
+            }).length;
+            resumoFinal.lista[1].valor += nZonaRural;
+            resumoFinal.lista[1].porcentagem += nCasasOracao;
 
             var nChecklist = casas_oracao.filter(function(casa_oracao) {
                 return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.checklist == 'sim';

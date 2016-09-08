@@ -10,8 +10,17 @@ function ColetasController($scope, Data, Modal, $routeParams) {
     $scope.meses = Data.getMeses();
     $scope.mes = $routeParams.mes;
     $scope.usuario = Data.getUsuario();
-    
+    $scope.contraste = false;
+    $scope.format = function (num) {
+        var n = num ? num.toString() : '0', p = n.indexOf('.');
+        return n.replace(/\d(?=(?:\d{3})+(?:\.|$))/g, function($0, i){
+            return p<0 || i<p ? ($0+'.') : $0;
+        });
+    };
+
     $scope.$watch('Data.getCasasOracao()', function(casas_oracao) {
+        if (!casas_oracao) return;
+        
         $scope.casas_oracao = casas_oracao;
         if (!isNaN($scope.mes)) {
             $scope.editavel = true;
@@ -23,15 +32,12 @@ function ColetasController($scope, Data, Modal, $routeParams) {
                 return casa_oracao;
             });
         }
-    });
-    
-    $scope.$watch('Data.getResumoColetas()', function(resumo) {
-        $scope.resumo = resumo;
+        $scope.resumo = Data.getResumoColetas();
     });
 
     if (isNaN($scope.mes)) {
         $scope.editavel = false;
-        $scope.titulo = 'Resumo por administração';
+        $scope.titulo = 'Coletas da regional por administração';
     }
 
     $scope.editarColeta = function(casa_oracao) {

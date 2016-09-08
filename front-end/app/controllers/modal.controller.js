@@ -79,8 +79,8 @@ function ModalController($scope, Modal, Data, $http) {
     $scope.salvarColeta = function() {
         $http.put('http://52.67.32.2:3003/coleta/' + $scope.data.coleta.id, $scope.data.coleta)
         .success(function(res, status) {
-            Data.atualizarCidades();
-            Data.atualizacaoColetas = new Date();
+            $scope.data.coleta = res;
+            Modal.closeAll();
         });
     };
 

@@ -44,9 +44,45 @@ label {
     margin-bottom: 0;
 }
 
+.text-bold {
+    font-weight: bold;
+}
+
+.summary-table .total-cell, .summary-table .total-row td {
+    background: #d6d6d6;
+}
+
+.summary-table thead th {
+    border: none !important;
+}
+
+.cell-bordered {
+    vertical-align: middle !important;
+}
+
+.summary-table .cell-bordered {
+    border-top: 1px solid #aaa !important;
+    background: #fcfcfc !important;
+}
+
+.summary-table thead th, .summary-table .cell-bordered {
+    background: #34495E !important;
+    color: white !important;
+    border: none;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+}
+
 @media print {
     h1 {
         margin: -1rem 0 2rem;
         display: block;
     }
+}
+
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 10%;
 }

@@ -1,6 +1,7 @@
 <h1><b>{{ titulo }}</b></h1>
 <div class="btn-group pull-right hidden-print" role="group" aria-label="...">
     <a href="javascript:if(window.print)window.print()" class="btn btn-default">Imprimir</a>
+    <a ng-show="!editavel" href="#" class="btn btn-success" ng-click="contraste = !contraste">Alto contraste</a>
 </div>
 <table ng-if="editavel" class="table table-hover table-bordered">
     <thead>
@@ -22,22 +23,22 @@
     <tbody>
         <tr ng-repeat="casa_oracao in casas_oracao | orderBy:['cidade.nome', 'nome']" class="clickable" ng-click="editarColeta(casa_oracao)" ng-cloak>
             <td>{{ casa_oracao.cidade.nome + ' - ' + casa_oracao.nome }}</td>
-            <td>{{ casa_oracao.coleta.construcao }}</td>
-            <td>{{ casa_oracao.coleta.piedade }}</td>
-            <td>{{ casa_oracao.coleta.viagens }}</td>
-            <td>{{ casa_oracao.coleta.manutencao }}</td>
-            <td>{{ casa_oracao.coleta.despesas }}</td>
-            <td>{{ casa_oracao.coleta.assembleia }}</td>
-            <td>{{ casa_oracao.coleta.especial_brasil }}</td>
-            <td>{{ casa_oracao.coleta.especial_terreno }}</td>
-            <td>{{ casa_oracao.coleta.especial_reg_amparo }}</td>
-            <td>{{ casa_oracao.coleta.especial_ag_lindoia }}</td>
-            <td>{{ casa_oracao.coleta.total }}</td>
+            <td>{{ format(casa_oracao.coleta.construcao) }}</td>
+            <td>{{ format(casa_oracao.coleta.piedade) }}</td>
+            <td>{{ format(casa_oracao.coleta.viagens) }}</td>
+            <td>{{ format(casa_oracao.coleta.manutencao) }}</td>
+            <td>{{ format(casa_oracao.coleta.despesas) }}</td>
+            <td>{{ format(casa_oracao.coleta.assembleia) }}</td>
+            <td>{{ format(casa_oracao.coleta.especial_brasil) }}</td>
+            <td>{{ format(casa_oracao.coleta.especial_terreno) }}</td>
+            <td>{{ format(casa_oracao.coleta.especial_reg_amparo) }}</td>
+            <td>{{ format(casa_oracao.coleta.especial_ag_lindoia) }}</td>
+            <td>{{ format(casa_oracao.coleta.total) }}</td>
         </tr>
     </tbody>
 </table>
 
-<table ng-if="!editavel" class="table table-hover table-bordered">
+<table ng-if="!editavel" ng-class="{ 'summary-table': contraste }" class="table table-hover table-bordered">
     <thead>
         <tr>
             <th>Administração</th>
@@ -56,20 +57,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="mes in resumo | orderBy:'administracao'" ng-cloak>
-            <td><b>{{ mes.mes == 'Janeiro' ? mes.administracao: '' }}</b></td>
-            <td>{{ mes.mes }}</td>
-            <td>{{ mes.construcao }}</td>
-            <td>{{ mes.piedade }}</td>
-            <td>{{ mes.viagens }}</td>
-            <td>{{ mes.manutencao }}</td>
-            <td>{{ mes.despesas }}</td>
-            <td>{{ mes.assembleia }}</td>
-            <td>{{ mes.especial_brasil }}</td>
-            <td>{{ mes.especial_terreno }}</td>
-            <td>{{ mes.especial_reg_amparo }}</td>
-            <td>{{ mes.especial_ag_lindoia }}</td>
-            <td>{{ mes.total }}</td>
+
+        <tr ng-class="{'total-row': mes.mes == 'Total' || mes.mes == 'Total Geral'}" ng-repeat="mes in resumo" ng-cloak>
+            <td rowspan="{{ meses.length + 1 }}" ng-if="mes.mes == 'Janeiro'" class="cell-bordered"><b>{{ mes.administracao }}</b></td>
+            <td class="text-left" ng-class="{'text-bold': mes.mes == 'Total' || mes.mes == 'Total Geral' }">{{ mes.mes }}</td>
+            <td>{{ format(mes.construcao) }}</td>
+            <td>{{ format(mes.piedade) }}</td>
+            <td>{{ format(mes.viagens) }}</td>
+            <td>{{ format(mes.manutencao) }}</td>
+            <td>{{ format(mes.despesas) }}</td>
+            <td>{{ format(mes.assembleia) }}</td>
+            <td>{{ format(mes.especial_brasil) }}</td>
+            <td>{{ format(mes.especial_terreno) }}</td>
+            <td>{{ format(mes.especial_reg_amparo) }}</td>
+            <td>{{ format(mes.especial_ag_lindoia) }}</td>
+            <td class="total-cell">{{ format(mes.total) }}</td>
         </tr>
     </tbody>
 </table>

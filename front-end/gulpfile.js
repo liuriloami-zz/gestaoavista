@@ -18,7 +18,7 @@ gulp.task('default', function() {
     .pipe(angularFilesort())
     .pipe(concat('app.js', { newLine: ';' }))
     .pipe(ngAnnotate({ add: true }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('/var/www'));
     
     gulp.src('index.html')
