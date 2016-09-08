@@ -282,13 +282,13 @@ function DataService($http, Modal, $cookies) {
             resumoFinal.lista[2].porcentagem += nCasasOracao;
 
             var nAverbadaParcialmente = casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.averbada_parcela == 'Parcial';
+                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.averbacao_parcela == 'Parcial';
             }).length;
             resumoFinal.lista[3].valor += nAverbadaParcialmente;
             resumoFinal.lista[3].porcentagem += nCasasOracao;
 
             var nNaoAverbada = casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.averbada == 'nao';
+                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.averbacao == 'nao';
             }).length;
             resumoFinal.lista[4].valor += nNaoAverbada;
             resumoFinal.lista[4].porcentagem += nCasasOracao;
@@ -306,7 +306,7 @@ function DataService($http, Modal, $cookies) {
             resumoFinal.lista[6].porcentagem += nCasasOracao;
 
             var nHabitese = casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.habite_se == 'sim';
+                return casa_oracao.geral && casa_oracao.geral.habite_se == 'sim';
             }).length;
             resumoFinal.lista[7].valor += nHabitese;
             resumoFinal.lista[7].porcentagem += nCasasOracao;
@@ -333,59 +333,63 @@ function DataService($http, Modal, $cookies) {
                 { 
                     nome: 'Quantidade de construções', 
                     valor: nCasasOracao, 
-                    porcentagem: '100'
+                    porcentagem: nCasasOracao
                 },
                 { 
                     nome: 'Quantidade de igrejas em Zona Rural',
                     valor: nZonaRural,
-                    porcentagem: (100*nZonaRural) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 { 
                     nome: 'Checklist',
                     valor: nChecklist,
-                    porcentagem: (100*nChecklist) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Averbada parcialmente',
                     valor: nAverbadaParcialmente,
-                    porcentagem: (100*nAverbadaParcialmente) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Não averbada',
                     valor: nNaoAverbada,
-                    porcentagem: (100*nNaoAverbada) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Escritura',
                     valor: nEscritura,
-                    porcentagem: (100*nEscritura) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Obra baixada na Receita Federal',
                     valor: nBaixadaReceita,
-                    porcentagem: (100*nBaixadaReceita) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Habite-se',
                     valor: nHabitese,
-                    porcentagem: (100*nHabitese) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Alvará de Funcionamento Vigente',
                     valor: nAlvara,
-                    porcentagem: (100*nAlvara) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'AVCB Vigente',
                     valor: nAVCB,
-                    porcentagem: (100*nAVCB) / nCasasOracao
+                    porcentagem: nCasasOracao
                 },
                 {
                     nome: 'Projeto Arquitetônico',
                     valor: nProjetoArquitetonico,
-                    porcentagem: (100*nProjetoArquitetonico) / nCasasOracao
+                    porcentagem: nCasasOracao
                 }
             ];
+            item.lista.forEach(function(item) {
+                if (item.porcentagem != 0)
+                    item.porcentagem = Math.round((100*item.valor) / item.porcentagem * 100) / 100;
+            });
             data.resumos.push(item);
         });
 
