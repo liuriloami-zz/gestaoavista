@@ -9,9 +9,7 @@ function ResumosController($scope, Data, Modal, $routeParams) {
     $scope.Data = Data;
     $scope.tipo = $routeParams.tipo;
     $scope.resumos = null;
-    $scope.$watch('Data.getAdministracoes()', function(administracoes) {
-        if (administracoes.length > 0) {
-            $scope.resumos = Data.getResumos();
-        }
+    $scope.$watch('Data.getCasasOracao()', function(casas_oracao) {
+        $scope.resumos = Data.getResumos();
     });
 }

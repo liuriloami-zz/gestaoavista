@@ -177,7 +177,7 @@ function DataService($http, Modal, $cookies) {
     };
 
     data.getResumos = function() {
-        if (data.resumos.length > 0) return data.resumos;
+        if (!data.administracoes) return [];
         var resumoFinal = {
             administracao: 'todas as administrações',
             lista: [
@@ -271,6 +271,7 @@ function DataService($http, Modal, $cookies) {
             var nZonaRural = casas_oracao.filter(function(casa_oracao) {
                 return casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.zona_rural == 'sim';
             }).length;
+            console.log(nZonaRural);
             resumoFinal.lista[1].valor += nZonaRural;
             resumoFinal.lista[1].porcentagem += nCasasOracao;
 
@@ -336,8 +337,8 @@ function DataService($http, Modal, $cookies) {
                 },
                 { 
                     nome: 'Quantidade de igrejas em Zona Rural',
-                    valor: 0,
-                    porcentagem: '0'
+                    valor: nZonaRural,
+                    porcentagem: (100*nZonaRural) / nCasasOracao
                 },
                 { 
                     nome: 'Checklist',
