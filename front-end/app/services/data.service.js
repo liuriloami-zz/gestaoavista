@@ -294,19 +294,19 @@ function DataService($http, Modal, $cookies) {
             resumoFinal.lista[4].porcentagem += nCasasOracao;
 
             var nEscritura = casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido' && casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.escritura == 'sim';
+                return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio' && casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.escritura == 'sim';
             }).length;
             resumoFinal.lista[5].valor += nEscritura;
             resumoFinal.lista[5].porcentagem += casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido';
+                return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio';
             }).length;
 
             var nBaixadaReceita = casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido' && casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.baixada_receita == 'sim';
+                return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio' && casa_oracao.documentos_propriedade && casa_oracao.documentos_propriedade.baixada_receita == 'sim';
             }).length;
             resumoFinal.lista[6].valor += nBaixadaReceita;
             resumoFinal.lista[6].porcentagem += casas_oracao.filter(function(casa_oracao) {
-                return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido';
+                return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio';
             }).length;
 
             var nHabitese = casas_oracao.filter(function(casa_oracao) {
@@ -363,14 +363,14 @@ function DataService($http, Modal, $cookies) {
                     nome: 'Escritura',
                     valor: nEscritura,
                     porcentagem: casas_oracao.filter(function(casa_oracao) {
-                        return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido';
+                        return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio';
                     }).length
                 },
                 {
                     nome: 'Obra baixada na Receita Federal',
                     valor: nBaixadaReceita,
                     porcentagem: casas_oracao.filter(function(casa_oracao) {
-                        return casa_oracao.documentos_propriedade.tipo_imovel == 'Cedido';
+                        return casa_oracao.documentos_propriedade.tipo_imovel == 'Proprio';
                     }).length
                 },
                 {
